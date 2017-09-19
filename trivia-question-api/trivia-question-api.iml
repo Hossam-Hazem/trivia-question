@@ -56,14 +56,13 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.resteasy:resteasy-client:3.0.11.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.resteasy:resteasy-json-p-provider:3.0.11.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: javax.json:javax.json-api:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.0.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish:javax.json:1.0.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.persistence:eclipselink:2.6.2" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.persistence:javax.persistence:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:eclipselink:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:javax.persistence:2.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: com.sumerge.afrexim:filenet-ecm:0.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.ibm.casemgmt:acmapi:5.2.1.5" level="project" />
     <orderEntry type="library" name="Maven: filenet.vw.server:eeapi:5.2.1" level="project" />
