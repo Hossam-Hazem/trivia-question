@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="trivia-question-api:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="trivia-question-api.war">
+      <element id="artifact" artifact-name="trivia-question-api:war exploded" />
+    </root>
+  </artifact>
+</component>
