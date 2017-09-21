@@ -33,18 +33,16 @@ public class QuizControl {
     }
 
     public void CreateQuizReviewCase(Quiz quiz){
-        List<Answer> answers = quiz.getAnswers();
+//        List<Answer> answers = quiz.getAnswers();
         CaseManagerConnector caseManagerConnector = new CaseManagerConnector();
         List<String> questionsStr = new LinkedList<>();
         List<String> answersStr = new LinkedList<>();
-//        for(Question question : quiz.getQuestions()){
-//            questionsStr.add(question.getName());
-//        }
-//        for(Answer answer : quiz.getAnswers()){
-//            answersStr.add(answer.getChoice().getText());
-//        }
+        for(Question question : quiz.getQuestions()){
+            questionsStr.add(question.getName());
+        }
+        for(Answer answer : quiz.getAnswers()){
+            answersStr.add(answer.getChoice().getText());
+        }
         caseManagerConnector.createReviewQuizCase(quiz.getUser().getId(), questionsStr, answersStr);
-
-
     }
 }

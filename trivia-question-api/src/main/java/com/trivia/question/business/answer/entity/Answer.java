@@ -1,6 +1,5 @@
 package com.trivia.question.business.answer.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.trivia.question.business.choice.entity.Choice;
 import com.trivia.question.business.quiz.entity.Quiz;
 import com.trivia.question.business.topic.entity.Topic;

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="trivia-question-case-connector:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/trivia_question_case_connector_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="trivia-question-case-connector/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="trivia-question-case-connector" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,6 +1,6 @@
 package com.trivia.question.business.quiz.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import com.trivia.question.business.answer.entity.Answer;
 import com.trivia.question.business.choice.entity.Choice;
 import com.trivia.question.business.question.entity.Question;
@@ -8,6 +8,7 @@ import com.trivia.question.business.topic.entity.Topic;
 import com.trivia.question.business.user.entity.User;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -61,7 +62,7 @@ public class Quiz implements Serializable{
         this.id = id;
     }
 
-    @JsonIgnore
+    @XmlTransient
     public List<Answer> getAnswers() {
         return answers;
     }
@@ -78,7 +79,7 @@ public class Quiz implements Serializable{
         this.topic = topic;
     }
 
-    @JsonIgnore
+    @XmlTransient
     public User getUser() {
         return user;
     }

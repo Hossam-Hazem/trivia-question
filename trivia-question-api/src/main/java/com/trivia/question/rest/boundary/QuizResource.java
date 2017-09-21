@@ -59,4 +59,17 @@ public class QuizResource {
         }
     }
 
+    @POST
+    @Path("setScore")
+    public Response setScore(JsonObject jsonObject){
+        try{
+            System.out.println(jsonObject);
+            return Response.ok(jsonObject).build();
+        }
+        catch (Exception exc){
+            System.out.println(exc.getMessage());
+            return Response.serverError().entity(exc.getMessage()).build();
+        }
+    }
+
 }

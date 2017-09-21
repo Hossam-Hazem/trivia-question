@@ -1,12 +1,13 @@
 package com.trivia.question.business.question.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import com.trivia.question.business.choice.entity.Choice;
 import com.trivia.question.business.topic.entity.Topic;
 
 import java.io.Serializable;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,7 @@ public class Question implements Serializable {
         this.name = id;
     }
 
-    @JsonIgnore
+    @XmlTransient
     public List<Topic> getTopics() {
         return topics;
     }

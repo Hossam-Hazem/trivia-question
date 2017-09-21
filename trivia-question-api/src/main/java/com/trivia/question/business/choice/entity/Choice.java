@@ -1,9 +1,10 @@
 package com.trivia.question.business.choice.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.trivia.question.business.question.entity.Question;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -40,7 +41,7 @@ public class Choice implements Serializable{
         this.text = text;
     }
 
-    @JsonIgnore
+    @XmlTransient
     public Question getQuestion() {
         return question;
     }
@@ -49,7 +50,7 @@ public class Choice implements Serializable{
         this.question = question;
     }
 
-    @JsonIgnore
+    @XmlTransient
     public boolean isCorrect() {
         return isCorrect;
     }

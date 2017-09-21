@@ -50,6 +50,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.resteasy:resteasy-jackson2-provider:3.0.11.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.4.1" level="project" />
@@ -57,7 +58,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.resteasy:resteasy-json-p-provider:3.0.11.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: javax.json:javax.json-api:1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.glassfish:javax.json:1.0.3" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.7" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:eclipselink:2.5.2" level="project" />

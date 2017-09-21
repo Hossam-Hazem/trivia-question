@@ -21,6 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CaseManagerConnector {
+    UserContext uc;
     public ObjectStore getObjectStore() {
         // Set the constants
 // Note: use /wsi/FNCEWS40MTOM/ for CEWS transport
@@ -30,10 +31,10 @@ public class CaseManagerConnector {
         P8ConnectionCache connCache = new SimpleP8ConnectionCache();
         Connection conn = connCache.getP8Connection(uri);
 // Get the user context
-        UserContext uc = UserContext.get();
+         uc =UserContext.get();
 // Build the subject using the FileNetP8WSI stanza
 // Use the FileNetP8WSI stanza for CEWS
-        Subject subject = UserContext.createSubject(conn, username, password,null);
+        Subject subject = UserContext.createSubject(conn, username, password,"FileNetP8WSI");
         uc.pushSubject(subject);
 
 
@@ -43,12 +44,34 @@ public class CaseManagerConnector {
                                 new SimpleVWSessionCache(), connCache
                         )
                 );
-        try {
 // Get the default domain
             Domain domain = Factory.Domain.getInstance(conn, null);
 // Get an object store
             return Factory.ObjectStore.fetchInstance(domain,
                     Constants.OBJECT_STORE_NAME, null);
+
+    }
+    public void createReviewQuizCase(int userId, List<String> questions, List<String> answers){
+        try {
+            ObjectStoreReference objectStoreReference = new ObjectStoreReference(getObjectStore());
+            CaseType caseTypeObj = CaseType.fetchInstance(objectStoreReference, "QRH_ReviewQuiz");
+            Case newCase = Case.createPendingInstanceFetchDefaults(caseTypeObj);
+            CaseMgmtProperties props = newCase.getProperties();
+            HashMap<String,Object> vals = new HashMap<>();
+            vals.put("QRH_userid", userId);
+    //        vals.put("QRH_questions", questions);
+    //        vals.put("QRH_answers", answers);
+            if (props != null && vals != null) {
+                for (String symbolicName : vals.keySet()) {
+                    if (props.supportsProperty(symbolicName)) {
+                        props.putObjectValue(symbolicName, vals.get(symbolicName));
+                    } else {
+                        System.err.println("cannot find property symbolic name (" + symbolicName + ") in case ");
+                    }
+                }
+            }
+            newCase.save(RefreshMode.REFRESH, null, ModificationIntent.NOT_MODIFY);
+            System.out.println(newCase.getProperties().asList().toString());
         }
         catch(Exception e){
             throw e;
@@ -56,29 +79,6 @@ public class CaseManagerConnector {
         finally {
             uc.popSubject();
         }
-    }
-    public void createReviewQuizCase(int userId, List<String> questions, List<String> answers){
-
-        ObjectStoreReference objectStoreReference = new ObjectStoreReference(getObjectStore());
-        CaseType caseTypeObj = CaseType.fetchInstance(objectStoreReference, "QRH_ReviewQuiz");
-
-        Case newCase = Case.createPendingInstanceFetchDefaults(caseTypeObj);
-        CaseMgmtProperties props = newCase.getProperties();
-        HashMap<String,Object> vals = new HashMap<>();
-        vals.put("QRH_userid", userId);
-        vals.put("QRH_questions", questions);
-        vals.put("QRH_answers", answers);
-        if (props != null && vals != null) {
-            for (String symbolicName : vals.keySet()) {
-                if (props.supportsProperty(symbolicName)) {
-                    props.putObjectValue(symbolicName, vals.get(symbolicName));
-                } else {
-                    System.err.println("cannot find property symbolic name (" + symbolicName + ") in case ");
-                }
-            }
-        }
-        newCase.save(RefreshMode.REFRESH, null, ModificationIntent.NOT_MODIFY);
-        System.out.println(newCase.getProperties().asList().toString());
     }
 
 
