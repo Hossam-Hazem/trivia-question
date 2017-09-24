@@ -7,6 +7,9 @@ import com.trivia.question.business.question.entity.Question;
 import com.trivia.question.business.quiz.entity.Quiz;
 
 import javax.ejb.Stateless;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,6 +46,11 @@ public class QuizControl {
         for(Answer answer : quiz.getAnswers()){
             answersStr.add(answer.getChoice().getText());
         }
-        caseManagerConnector.createReviewQuizCase(quiz.getUser().getId(), questionsStr, answersStr);
+        System.out.println(quiz);
+        caseManagerConnector.createReviewQuizCase(quiz.getUser().getId(), quiz.getId(), questionsStr, answersStr);
+    }
+
+    public JsonObject getScoreInJson(Quiz quiz) {
+        return Json.createObjectBuilder().add("score", quiz.getScore()).build();
     }
 }

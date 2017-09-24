@@ -51,7 +51,7 @@ public class CaseManagerConnector {
                     Constants.OBJECT_STORE_NAME, null);
 
     }
-    public void createReviewQuizCase(int userId, List<String> questions, List<String> answers){
+    public void createReviewQuizCase(int userId, int quizId, List<String> questions, List<String> answers){
         try {
             ObjectStoreReference objectStoreReference = new ObjectStoreReference(getObjectStore());
             CaseType caseTypeObj = CaseType.fetchInstance(objectStoreReference, "QRH_ReviewQuiz");
@@ -59,8 +59,8 @@ public class CaseManagerConnector {
             CaseMgmtProperties props = newCase.getProperties();
             HashMap<String,Object> vals = new HashMap<>();
             vals.put("QRH_userid", userId);
-    //        vals.put("QRH_questions", questions);
-    //        vals.put("QRH_answers", answers);
+            vals.put("QRH_questions", questions);
+            vals.put("QRH_answers", answers);
             if (props != null && vals != null) {
                 for (String symbolicName : vals.keySet()) {
                     if (props.supportsProperty(symbolicName)) {

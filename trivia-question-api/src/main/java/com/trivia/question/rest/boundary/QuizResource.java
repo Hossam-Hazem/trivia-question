@@ -5,9 +5,7 @@ import com.trivia.question.business.quiz.boundary.QuizService;
 
 import javax.ejb.EJB;
 import javax.json.JsonObject;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -38,8 +36,10 @@ public class QuizResource {
     public Response submit(JsonObject jsonObject){
         try{
             int quizId = jsonObject.getInt("quiz_id");
-            return Response.ok(quizService.submit(quizId)).build();
+            return Response.ok(quizService.submitReview(quizId)).build();
+//            return Response.ok(quizService.submit(quizId)).build();
         }
+
         catch (Exception exc){
             System.out.println(exc.getMessage());
             return Response.serverError().entity(exc.getMessage()).build();
@@ -65,6 +65,18 @@ public class QuizResource {
         try{
             System.out.println(jsonObject);
             return Response.ok(jsonObject).build();
+        }
+        catch (Exception exc){
+            System.out.println(exc.getMessage());
+            return Response.serverError().entity(exc.getMessage()).build();
+        }
+    }
+
+    @GET
+    @Path("score/{userId}/{quizId}")
+    public Response getScore(@PathParam("quizId") int quizId, @PathParam("userId") int userId){
+        try{
+            return Response.ok(quizService.getScore(quizId, userId)).build();
         }
         catch (Exception exc){
             System.out.println(exc.getMessage());

@@ -17,7 +17,10 @@ import javax.ejb.EJB;
 import javax.ejb.ObjectNotFoundException;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.persistence.EntityManager;
+import javax.ws.rs.NotAuthorizedException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,7 +85,11 @@ public class QuizService{
     public QuizResult submitReview(int quizId) throws ObjectNotFoundException {
         Quiz quiz = em.find(Quiz.class, quizId);
         quizControl.CreateQuizReviewCase(quiz);
-        return null;
+        quiz.setScore(-1);
+        em.persist(quiz);
+
+        HashMap<String,String> data = new HashMap<>();
+        return QuizResult.finished(data);
     }
 
     private List<Choice> getUserChoices(int quizId) throws ObjectNotFoundException {
@@ -106,5 +113,16 @@ public class QuizService{
                 .getSingleResult();
         Quiz quiz = em.find(Quiz.class, quizId);
         return quizControl.questionExists(quiz, question);
+    }
+
+    public JsonObject getScore(int quizId, int userId) throws ObjectNotFoundException {
+        Quiz quiz = em.find(Quiz.class, quizId);
+        if(quiz == null){
+            throw new ObjectNotFoundException("Quiz object does not exist");
+        }
+        if(quiz.getUser().getId() != userId){
+            throw new NotAuthorizedException("this user is not authorized to check this quiz");
+        }
+        return quizControl.getScoreInJson(quiz);
     }
 }
