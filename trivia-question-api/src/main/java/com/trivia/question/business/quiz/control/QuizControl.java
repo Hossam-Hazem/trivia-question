@@ -5,12 +5,14 @@ import com.trivia.question.business.answer.entity.Answer;
 import com.trivia.question.business.choice.entity.Choice;
 import com.trivia.question.business.question.entity.Question;
 import com.trivia.question.business.quiz.entity.Quiz;
+import org.apache.commons.json.JSONArray;
+import org.apache.commons.json.JSONException;
+import org.apache.commons.json.JSONObject;
 
 import javax.ejb.Stateless;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
+import javax.json.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -52,5 +54,24 @@ public class QuizControl {
 
     public JsonObject getScoreInJson(Quiz quiz) {
         return Json.createObjectBuilder().add("score", quiz.getScore()).build();
+    }
+
+
+    public JSONArray getJsonFromCollection(Collection<Quiz> quizzes) {
+        JSONArray jsonArray = new JSONArray();
+        for(Quiz quiz : quizzes){
+            int score = quiz.getScore() != null ? quiz.getScore() : 0;
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("id", quiz.getId());
+                jsonObject.put("score", score);
+                jsonObject.put("topic", quiz.getTopic().getName());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            jsonArray.add(jsonObject);
+        }
+        return jsonArray;
     }
 }

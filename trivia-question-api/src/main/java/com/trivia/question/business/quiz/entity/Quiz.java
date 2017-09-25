@@ -100,7 +100,7 @@ public class Quiz implements Serializable{
         this.questions = questions;
     }
 
-    public int getScore() {
+    public Integer getScore() {
         return score;
     }
 

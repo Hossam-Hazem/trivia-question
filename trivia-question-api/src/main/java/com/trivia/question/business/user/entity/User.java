@@ -4,6 +4,7 @@ import com.trivia.question.business.answer.entity.Answer;
 import com.trivia.question.business.quiz.entity.Quiz;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -88,6 +89,11 @@ public class User implements Serializable {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    @XmlTransient
+    public List<Quiz> getQuizzes() {
+        return quizzes;
     }
 
     @Override

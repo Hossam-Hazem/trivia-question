@@ -12,12 +12,16 @@ import com.trivia.question.business.quiz.entity.Quiz;
 import com.trivia.question.business.topic.boundary.TopicService;
 import com.trivia.question.business.topic.entity.Topic;
 import com.trivia.question.business.user.entity.User;
+import org.apache.commons.json.JSONArray;
+import org.apache.commons.json.JSONException;
+import org.apache.commons.json.JSONObject;
 
 import javax.ejb.EJB;
 import javax.ejb.ObjectNotFoundException;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.json.Json;
+import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.persistence.EntityManager;
 import javax.ws.rs.NotAuthorizedException;
@@ -121,8 +125,23 @@ public class QuizService{
             throw new ObjectNotFoundException("Quiz object does not exist");
         }
         if(quiz.getUser().getId() != userId){
-            throw new NotAuthorizedException("this user is not authorized to check this quiz");
+            throw new NotAuthorizedException("This user is not authorized to check this quiz");
         }
         return quizControl.getScoreInJson(quiz);
+    }
+
+    public Object getQuizzes(int userId) throws ObjectNotFoundException {
+        User user = em.find(User.class, userId);
+        if(user == null){
+            throw new ObjectNotFoundException("User doesn't exist") ;
+        }
+        JSONObject jsonObject = new JSONObject();
+        JSONArray quizzesJsonArray = quizControl.getJsonFromCollection(user.getQuizzes());
+        try {
+            jsonObject.put("quizzes", quizzesJsonArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
     }
 }

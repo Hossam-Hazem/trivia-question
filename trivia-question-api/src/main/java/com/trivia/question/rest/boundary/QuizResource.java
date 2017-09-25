@@ -84,4 +84,15 @@ public class QuizResource {
         }
     }
 
+    @GET
+    public Response getQuizzes(@QueryParam("userId") int userId){
+        try{
+            return Response.ok(quizService.getQuizzes(userId)).build();
+        }
+        catch (Exception exc){
+            System.out.println(exc.getMessage());
+            return Response.serverError().entity(exc.getMessage()).build();
+        }
+    }
+
 }
