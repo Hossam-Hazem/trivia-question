@@ -1,5 +1,5 @@
-app.factory('Quiz', function($resource) {
-	var resource = $resource("http://localhost:8080/trivia-question/api/quizzes/:id");
+app.factory('Quiz', function($resource, consts) {
+	var resource = $resource(consts.serverUrlPrefix+'quizzes/:id');
 	return {
 		'resource': resource
 

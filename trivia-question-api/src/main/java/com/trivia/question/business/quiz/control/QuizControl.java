@@ -62,10 +62,12 @@ public class QuizControl {
         for(Quiz quiz : quizzes){
             int score = quiz.getScore() != null ? quiz.getScore() : 0;
             JSONObject jsonObject = new JSONObject();
+            int questionsCount = quiz.getNumberOfQuestions() == null ? -1 : quiz.getNumberOfQuestions();
             try {
                 jsonObject.put("id", quiz.getId());
                 jsonObject.put("score", score);
                 jsonObject.put("topic", quiz.getTopic().getName());
+                jsonObject.put("questionsCount", questionsCount);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

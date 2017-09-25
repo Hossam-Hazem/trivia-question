@@ -3,6 +3,7 @@ var quizRoute = '/quiz';
 var homeRoute = '/home';
 var scoreRoute = '/score';
 var createQuestionRoute = '/createQuestion';
+var scoreHistoryRoute = '/history';
 
 var app = angular.module('triviaQuestionApp', ['ngResource','ngRoute','ngCookies', 'ngMessages'])
 	.config(function($routeProvider){
@@ -30,6 +31,11 @@ var app = angular.module('triviaQuestionApp', ['ngResource','ngRoute','ngCookies
 		{
 			templateUrl: 'templates/createQuestion.html',
 			controller: 'CreateQuestionController'
+		})
+		$routeProvider.when(scoreHistoryRoute,
+		{
+			templateUrl: 'templates/scoreHistory.html',
+			controller: 'ScoreHistoryController'
 		})
 		$routeProvider.otherwise({redirectTo:signInRoute})
 	})

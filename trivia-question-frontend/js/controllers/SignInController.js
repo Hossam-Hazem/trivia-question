@@ -1,12 +1,12 @@
 app.controller('SignInController',
-	function SignInController($scope, $http, $cookies, Auth,$location){
+	function SignInController($scope, $http, $cookies, Auth, $location, consts){
 		$scope.user = {};
 		$scope.signInStatus = false;
 		$scope.submit = function(requestData){
 			$http(
 				{
-					method:"POST",
-					url:"http://localhost:8080/trivia-question/api/users/signin",
+					method: "POST",
+					url: consts.serverUrlPrefix+"users/signin",
 					data: requestData
 				}).
 			success(function(response){

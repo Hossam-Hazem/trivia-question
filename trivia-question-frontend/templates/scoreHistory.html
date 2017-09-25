@@ -1,0 +1,20 @@
+<div class="container">
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th> quiz Id</th>
+			<th> topic</th>
+			<th> score</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="quiz in quizzes">
+			<td>{{quiz.id}}</td>
+			<td>{{quiz.topic}}</td>
+			<td>{{quiz.score >= 0? (quiz.score+" correct out of "+quiz.questionsCount) : quiz.status}}</td>
+		</tr>
+	</tbody>
+</table>
+	
+</div>

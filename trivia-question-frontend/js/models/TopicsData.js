@@ -1,5 +1,5 @@
-app.factory('Topic', function($resource) {
-	var resource = $resource("http://localhost:8080/trivia-question/api/topics/:id");
+app.factory('Topic', function($resource, consts) {
+	var resource = $resource(consts.serverUrlPrefix+'topics/:id');
 	return {
 		'resource': resource,
 		'getTopics': function(success,error){

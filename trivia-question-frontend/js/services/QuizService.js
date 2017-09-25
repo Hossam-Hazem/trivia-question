@@ -1,4 +1,4 @@
-app.factory('QuizService', function($http){
+app.factory('QuizService', function($http, consts){
 	
 	var currentQuiz;
 
@@ -6,7 +6,7 @@ app.factory('QuizService', function($http){
 	    'start': function(userId, topicId, success, error){
 			return $http({
 					  method: 'POST',
-					  url: 'http://localhost:8080/trivia-question/api/quizzes/start',
+					  url: consts.serverUrlPrefix+'quizzes/start',
 					  data: {'user_id': parseInt(userId), 'topic_id':parseInt(topicId)}
 					}).then(function(response){
 						if(response.data.status == "SUCCESS"){
@@ -34,7 +34,7 @@ app.factory('QuizService', function($http){
 			var choiceId = currentQuiz.answers[questionIndex].choiceId;
 			return $http({
 					  method: 'POST',
-					  url: 'http://localhost:8080/trivia-question/api/answers/submit',
+					  url: consts.serverUrlPrefix+'answers/submit',
 					  data: {'quiz_id': parseInt(currentQuiz.id), 'choice_id':parseInt(choiceId)}
 					}).then(function(response){
 						if(_.isFunction(success)){
@@ -49,7 +49,7 @@ app.factory('QuizService', function($http){
 		'submitQuiz': function(success, error){
 			return $http({
 					  method: 'POST',
-					  url: 'http://localhost:8080/trivia-question/api/quizzes/submit',
+					  url: consts.serverUrlPrefix+'quizzes/submit',
 					  data: {'quiz_id': parseInt(currentQuiz.id)}
 					}).then(function(response){
 						console.log(response)

@@ -108,7 +108,7 @@ public class Quiz implements Serializable{
         this.score = score;
     }
 
-    public int getNumberOfQuestions() {
+    public Integer getNumberOfQuestions() {
         return numberOfQuestions;
     }
 
