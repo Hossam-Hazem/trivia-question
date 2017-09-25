@@ -1,0 +1,31 @@
+.navBarUserName{
+    color: #eef0f4;
+    padding-right: 1em;
+}
+#navbar{
+	padding-top: 5px; 
+	background-color: #061b49;
+	border-color: #bfbebe;
+	margin-bottom: 0;
+-moz-box-shadow: 0 0 3px #888;
+-webkit-box-shadow: 0 0 3px#888;
+box-shadow: 0 0 3px #888;
+    border: none;
+}
+.myNav, #navBarBrand{
+	color: #eef0f4;
+}
+#navBarBrand:hover, #navBarBrand:active, #navBarBrand:focus{
+	color: 	#e7771a;
+}
+#signOutButton{
+	background-color: #eef0f4;
+	color: #e7771a;
+	font-weight: bold;
+}
+
+body{
+	background-color: #eef0f4;
+	color: #061b49;
+	height: 100%;
+}

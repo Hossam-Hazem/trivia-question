@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my App</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/chooseTopic.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/quizPage.css">
+	<link rel="stylesheet" type="text/css" href="css/slider.css">
+	<link rel="stylesheet" type="text/css" href="css/score.css">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="css/createQuestion.css">
+
+</head>
+<body ng-app="triviaQuestionApp">
+<div ng-cloak >
+<!-- 	<div>
+		<a href="#/home">home</a>
+		<a href="#/signin">signin</a>
+		<a href="#/quiz">quiz</a>	
+	</div> -->
+<nav   ng-controller="NavbarController"  class="navbar navbar-static-top" id="navbar" ng-hide="isActive('/signin')">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand myNav" href="#/home" id="navBarBrand">
+        Trivia
+      </a>
+    </div>
+    <ul class="nav nav-pills">
+<!-- 	  <li role="presentation" ><a class="myNav" href="#">Home</a></li>
+	  <li role="presentation" ><a class="myNav" href="#">Profile</a></li>
+	  <li role="presentation"><a class="myNav" href="#">Messages</a></li> -->
+	  
+	   	<ul class="nav navbar-nav navbar-right">
+      		<label class="navBarUserName">{{user.name}}</label>
+	  		<button type="button" class="btn navbar-btn" id="signOutButton" ng-click="logOut()">Sign Out</button>
+    	</ul>
+
+	</ul>
+  </div>
+</nav>
+	<ng-view>
+		
+	</ng-view>
+</div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-resource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-cookies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-messages.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers/SignInController.js"></script>
+<script type="text/javascript" src="js/controllers/QuizController.js"></script>
+<script type="text/javascript" src="js/controllers/HomeController.js"></script>
+<script type="text/javascript" src="js/controllers/NavbarController.js"></script>
+<script type="text/javascript" src="js/controllers/ScoreController.js"></script>
+<script type="text/javascript" src="js/controllers/CreateQuestionController.js"></script>
+<script type="text/javascript" src="js/services/AuthService.js"></script>
+<script type="text/javascript" src="js/services/QuizService.js"></script>
+<script type="text/javascript" src="js/models/TopicsData.js"></script>
+<script type="text/javascript" src="js/models/QuizzesData.js"></script>
+<script type="text/javascript" src="js/directives/ngElementReady.js"></script>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+</html>

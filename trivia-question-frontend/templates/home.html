@@ -1,0 +1,24 @@
+
+
+<div id="welcomeMessageContainer">
+	<div id="welcomeMessage">
+		Hi Hossam!
+	</div>
+</div>
+
+<div id="chooseTopicContainer">
+	<div id="chooseTopicText">
+		Please choose a topic
+	</div>	
+</div>
+<div class="container">
+	<div ng-repeat="topic in topics.data track by $index">
+		<div class="clearfix" ng-if="$index % 3 ==0">		</div>
+			<div class="col-xs-4 topicBoxContainer ">
+				<span class="slowTransition" id="{{topic.id}}" ng-click="selectTopic(topic.id)">{{topic.name}}</span>
+			</div>
+
+	</div>
+</div>
+
+

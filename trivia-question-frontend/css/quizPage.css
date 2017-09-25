@@ -1,0 +1,69 @@
+.questionSliderContainer{
+	margin-top: 2em;
+	overflow-x: hidden; 
+}
+.questionContainer{
+    border: 2px solid #061b49;
+    padding: 2em;
+    font-size: 1.5em;
+}
+.questionContentContainer{
+    margin: 3em;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+    padding: 3em;
+    height: 80%;
+}
+
+.questionSlider{
+	background: #eef0f4;
+}
+
+.questionChoices{
+    margin: 3em;
+    margin-bottom: 1em;
+    font-size: 1.25em;	
+}
+
+.questionChoice{
+	margin: 1em;
+}
+
+.submitQuestionButton{
+	background-color: #eef0f4;
+	color: #e7771a;
+	font-weight: bold;
+}
+
+.questionSubmitContainer{
+    text-align: center;
+}
+
+#nextQuestionButton{
+    float: right;
+}
+
+#prevQuestionButton{
+    float: left;
+}
+
+.quizButton.correct{
+    background: green !important;
+    cursor: default;
+}
+.quizButton.correct:hover, .quizButton.correct:active, .quizButton.correct:focus{
+    background: green !important;
+    color: #eef0f4;
+    cursor: default;
+}
+
+.quizButton.inCorrect{
+    background: darkred !important;
+    cursor: default;
+}
+.quizButton.inCorrect:hover, .quizButton.inCorrect:active, .quizButton.inCorrect:focus{
+    background: darkred !important;
+    color: #eef0f4;
+    cursor: default;
+}

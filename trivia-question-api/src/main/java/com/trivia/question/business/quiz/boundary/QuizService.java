@@ -93,6 +93,7 @@ public class QuizService{
         em.persist(quiz);
 
         HashMap<String,String> data = new HashMap<>();
+        data.put("score", -1+"");
         return QuizResult.finished(data);
     }
 

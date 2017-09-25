@@ -1,0 +1,75 @@
+<div >
+	<div id="loginHeader">
+		<div id="loginHeaderMask">
+			<div id="loginTitle">
+				Trivia
+			</div>
+			<form name="form" id="loginContainer" class="col-xs-4 col-xs-offset-4" ng-submit="submit(user)">
+				<div id="loginDetails">
+					<div id="loginDetailsEmail" class="container form-group">
+						<label id="loginDetailsEmailLabel" class="loginDetailsLabel col-xs-1"> Email</label>
+						<div class="loginInputContainer col-xs-3" >
+							<input name="email" type="email" id="loginDetailsEmailInput" class="loginInput form-control" ng-model="user.email" required>
+						</div>
+						
+					</div>
+					<div id="loginDetailsPassword" class="container form-group">
+						<label id="loginDetailsPasswordLabel" class="loginDetailsLabel col-xs-1"> Password</label>
+						<div class="loginInputContainer col-xs-3">
+							<input name="password" type="password" id="loginDetailsPasswordInput" class="loginInput form-control" ng-model="user.password" required>
+						</div>
+						
+					</div>
+
+				</div>
+				<div id="loginButtons">
+					<input type="submit" id="loginButton" class="btn btn-success btn-lg" value="Sign in">
+					<span id="signUpText"> or <a href="#" id="joinUsLink">join us</a></span>
+				</div>
+				<div ng-messages="form.$error" role="alert" class="signInErrors">
+					<div>
+						<ng-message when="WRONG_PASSWORD" class="alert alert-danger "> wrong password!</ng-message>
+						<ng-message when="EMAIL_NOT_FOUND" class="alert alert-danger "> email not found!</ng-message>
+					</div>
+					
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="joinUs">
+		<div id="joinUsText">
+			Join us on Trivia to
+		</div>
+	</div>
+	<div id="loginBody">
+		<div class="container" id="loginBodyContainer">
+			<div id="bodyFirstRow" class="row loginBodyRow">
+				<div class="col-xs-6 loginBodyBoxContainer">
+					<span>Prove your knowledge</span>
+				</div>
+				<div class="col-xs-6 loginBodyBoxContainer">
+					<span>challenge your friends</span>
+				</div>
+			</div>
+			<div id="bodySecondRow" class="row">
+				<div class="col-xs-6 loginBodyBoxContainer">
+					<span>Learn new facts and correct false ones you have</span>
+				</div>
+				<div class="col-xs-6 loginBodyBoxContainer">
+					<span>Compete with nerds in different fields</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="connect">
+		<div id="connectLabel">Connect</div>
+		<ul id="connectLogos" class="list-inline">
+			<li class="fa fa-facebook connectLogo"></li>
+			<li class="fa fa-instagram connectLogo"></li>
+			<li class="fa fa-twitter connectLogo"></li>
+			<li class="fa fa-reddit-alien connectLogo"></li>
+		</ul>
+		<div id="contactUs"></div>
+		<div id="madeWith"></div>
+	</div>
+</div>

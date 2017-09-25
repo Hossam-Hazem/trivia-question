@@ -1,0 +1,61 @@
+
+#welcomeMessageContainer{
+    height: 3em;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+}
+
+#welcomeMessage{
+	width: 100%;
+    text-align: center;
+}
+
+#chooseTopicContainer{
+	height: 3em;
+    text-align: center;
+    font-size: 2em;
+    background: #dddad8;
+    color: #e7771a;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#chooseTopicText{
+	width: 100%;
+	text-align: center;
+}
+
+.topicBoxContainer{
+	height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.topicBoxContainer span{
+    padding: 0.5em;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 2em;
+    border: 2px solid #061b49;
+    color: #061b49;
+    height: 3em;
+    width: 7em;
+    align-items: center;
+    cursor: pointer;
+    cursor: hand;
+}
+.topicBoxContainer span:hover{
+	background-color: #061b49;
+	color: #eef0f4;
+}
+
+.slowTransition{
+	-webkit-transition: background-color 0.4s ease;
+    -moz-transition:    background-color 0.4s ease;
+    -ms-transition:     background-color 0.4s ease;
+    -o-transition:      background-color 0.4s ease;
+    transition:         background-color 0.4s ease;
+
+}

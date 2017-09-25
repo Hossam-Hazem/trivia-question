@@ -1,0 +1,173 @@
+body { width: 100%; height: 100%; margin: 0px; padding: 0px; overflow-x: hidden;}
+#loginHeader{
+	height: 90vh;
+	width: 100vw;
+	position: relative;
+	background-image: url("../images/headerImage.jpg");
+	background-repeat: round;
+	background-attachment: fixed;
+}
+#loginHeaderMask{
+	background-color: #061b49;
+	height: 100%;
+	background: -webkit-linear-gradient(top,rgba(6,27,73,0.3) 0,rgba(6,27,73,1) 100%);
+    background: -o-linear-gradient(top,rgba(6,27,73,0.3) 0,rgba(6,27,73,1) 100%);
+    background: -moz-linear-gradient(top,rgba(6,27,73,0.3) 0,rgba(6,27,73,1) 100%);
+    background: -ms-linear-gradient(top,rgba(6,27,73,0.3) 0,rgba(6,27,73,1) 100%);
+    background: linear-gradient(top,rgba(6,27,73,0.3) 0,rgba(6,27,73,1) 100%);
+}
+#loginTitle{
+	color: #e7771a;
+	font-size: 2em;
+	padding-left: 5vw;
+	padding-top: 5vh
+}
+#loginContainer{
+	margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 15em;
+}
+#loginDetails{
+	color: #eef0f4;
+}
+#loginDetailsEmail{
+
+}
+.loginDetailsLabel{
+	display: inline;
+	text-align: center;
+	height: 34px;
+	margin-top: 0.5em;
+}
+#loginDetailsEmailInput{
+
+}
+.loginInput{
+	font-size: 1.5em;
+    position: relative;
+    z-index: 1;
+    padding-right: 0;
+    padding-left: 0;
+    resize: none;
+    border: none;
+    border-radius: 0;
+    background: 0 0;
+    box-shadow: none!important;
+    color: #eef0f4;
+}
+.loginInputContainer{
+	display: inline-block;
+	margin-left: 1em;
+	border-bottom: 1px solid #eef0f4;
+	padding-left:0;
+}
+
+#loginButtons{
+	text-align: end;
+	margin-top: 4em;
+}
+#loginButton{
+	color: #e7771a;
+    border-color: #bfbebe;
+    background-color: #eef0f4;
+}
+
+#loginButton.active, #loginButton:active{
+    color: #e7771a;
+    border-color: #dddad8;
+    background-color: #bfbebe;
+}
+
+#signUpText{
+	color: #eef0f4;
+}
+
+a#joinUsLink{
+	text-decoration: underline;
+	color: #eef0f4;
+	outline: #eef0f4;
+}
+a#joinUsLink:active{
+	text-decoration: none;
+}
+
+
+#joinUs{
+	background-color: #dddad8;
+	height: 10vh;
+	width: 100vw;
+}
+
+#joinUsText{
+	text-align: center;
+    font-size: 4em;
+    color: #e7771a;
+}
+
+#loginBody{
+	background-color: #eef0f4;
+	height: 100vh;
+}
+
+#loginBodyContainer{
+	height: 100%;
+}
+
+.loginBodyRow{
+	height: 50%;
+}
+
+.loginBodyBox{
+	position: relative;
+}
+
+.loginBodyBoxContainer{
+	height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.loginBodyBoxContainer span{
+    padding: 1em;
+    font-size: 2em;
+    text-align: center;
+    margin: 3em;
+    border: 2px solid #061b49;
+    color: #061b49;
+    height: 6em;
+    display: flex;
+    align-items: center;
+    width: 15em;
+}
+
+#connect{
+	background-color: #061b49;
+	height: 25vh;
+}
+
+#connectLabel{
+	text-align: center;
+    padding-top: 1em;
+    font-size: 2em;
+    color: #eef0f4;
+}
+
+#connectLogos{
+	margin-top: 0.5em;
+	text-align: center;
+    font-size: 2em;
+}
+
+.connectLogo{
+	margin: 0 0.5em;
+    color: #e7771a;
+}
+
+.signInErrors{
+	text-align: center;
+    margin-top: 2em;
+}

@@ -1,0 +1,18 @@
+<div class="container">
+	<div id="scorePageView">
+		<div class="scoreContentContainer">
+			<h2>
+				{{user.name}} your score is <br> {{quiz.score}}/{{quiz.totalQuestions}}
+				<br>
+				{{isGoodScore()? "Good Job!" : "Better luck next time"}}
+			</h2>
+			<div>
+				<button class="btn newQuizButton" ng-click="newQuiz();">
+					Start new quiz
+				</button>
+			</div>
+		</div>
+
+
+	</div>
+</div>

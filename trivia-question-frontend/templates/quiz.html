@@ -1,0 +1,34 @@
+<div>
+	
+
+
+<div class="questionSliderContainer">
+	<div class = 'questionSlider' ng-element-ready="bodyIsReady()">
+			<div class='slide ' id='p{{$index}}' ng-repeat="question in quiz.questions track by $index">
+				<div class="questionContentContainer">
+					<div class="questionContainer">
+						<div class="questionText">
+							{{question.name}}
+						</div>
+					</div>
+					<div class="questionChoices">
+						<div class="questionChoice radio" ng-repeat="choice in question.choices">
+						 	<label><input type="radio" name="question{{$parent.question.id}}" ng-model="quiz.answers[$parent.$index].choiceId" ng-value="choice.id" ng-disabled="quiz.submittedQuestions[$parent.$index]">{{choice.text}}</label></div>
+					</div>
+					<div class="questionSubmitContainer">
+						<button type="button" class="btn quizButton submitQuestionButton" id="submitButton{{$index}}" ng-click="submitQuestion($index)" ng-disabled="!quiz.answers[$index]">Submit Answer</button>
+						<button type="button" class="btn quizButton" id="nextQuestionButton" ng-class="{'invisible': !mySlider.allowNextButton() && ($last && !isFinished())}" ng-click="($last && isFinished())?submitQuiz():nextQuestion()"> {{$last ? 'Finish' : 'Next'}}</button>
+						<button type="button" class="btn quizButton" id="prevQuestionButton" ng-class="{'invisible': !mySlider.allowPrevButton()}" ng-click="prevQuestion()"> Previous</button>
+					</div>
+				</div>
+			</div>
+
+
+			<div class='icons'>
+			<ul class="iconsL">
+			</ul>
+			</div>
+	</div>
+	<button  ng-click="submitQuiz()">Submit Quiz</button>
+</div>
+</div>

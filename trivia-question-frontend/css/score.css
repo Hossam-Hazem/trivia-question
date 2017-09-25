@@ -1,0 +1,30 @@
+#scorePageView{
+	height: 85vh;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;    
+}
+
+.newQuizButton{
+	border: none;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 10px 0 20px;
+    padding: 0px 20px;
+    line-height: 50px;
+    height: 50px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+    background: #061b49;
+    color: #e7771a;
+    margin: 0 auto;
+
+}
+
+.scoreContentContainer{
+	text-align: center;
+	width: 100%;
+}
