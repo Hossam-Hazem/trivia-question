@@ -18,7 +18,7 @@ public final class Constants {
      */
     public  static final String PASSWORD = "P@ssw0rd";
 
-    public  static final String CE_URI = "http://10.0.1.96:9080/wsi/FNCEWS40MTOM";
+    public  static final String CE_URI = "http://10.0.1.66:9080/wsi/FNCEWS40MTOM";
 
     public  static final String OBJECT_STORE_NAME = "TARGET";
 }

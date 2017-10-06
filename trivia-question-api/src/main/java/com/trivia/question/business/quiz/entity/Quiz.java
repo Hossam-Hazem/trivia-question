@@ -7,6 +7,7 @@ import com.trivia.question.business.question.entity.Question;
 import com.trivia.question.business.topic.entity.Topic;
 import com.trivia.question.business.user.entity.User;
 
+import javax.annotation.Generated;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;

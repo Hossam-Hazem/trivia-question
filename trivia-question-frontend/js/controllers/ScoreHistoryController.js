@@ -7,7 +7,8 @@ app.controller('ScoreHistoryController',
             "topic": "Sports",
             "id": 1
         });
-		$http(	
+		$scope.updateQuizzes = function(){
+			$http(	
 				{
 					method:"GET",
 					url:consts.serverUrlPrefix+'quizzes?userId='+Auth.getUserId(),
@@ -26,4 +27,7 @@ app.controller('ScoreHistoryController',
 			error(function(response){
 				console.log(response);
 			})
+		};
+		$scope.updateQuizzes();
+
 	})

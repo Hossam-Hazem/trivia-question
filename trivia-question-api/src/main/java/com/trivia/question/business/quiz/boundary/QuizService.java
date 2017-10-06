@@ -55,10 +55,13 @@ public class QuizService{
         quiz.setUser(user);
         quiz.setQuestions(questions);
         quiz.setNumberOfQuestions(Constants.QUESTIONS_LIMIT);
-        quiz = em.merge(quiz);
+        Quiz newQuiz = em.merge(quiz);
+        em.flush();
+
+        
         HashMap<String, Object> data = new HashMap<>();
-        data.put("id", quiz.getId());
-        data.put("questions", quiz.getQuestions());
+        data.put("id", newQuiz.getId());
+        data.put("questions", newQuiz.getQuestions());
         return QuizStartResult.success(data);
     }
 
@@ -88,10 +91,11 @@ public class QuizService{
 
     public QuizResult submitReview(int quizId) throws ObjectNotFoundException {
         Quiz quiz = em.find(Quiz.class, quizId);
+        em.refresh(quiz);
         quizControl.CreateQuizReviewCase(quiz);
         quiz.setScore(-1);
         em.persist(quiz);
-
+        em.flush();
         HashMap<String,String> data = new HashMap<>();
         data.put("score", -1+"");
         return QuizResult.finished(data);
@@ -132,11 +136,14 @@ public class QuizService{
     }
 
     public Object getQuizzes(int userId) throws ObjectNotFoundException {
+        em.getEntityManagerFactory().getCache().evictAll();
         User user = em.find(User.class, userId);
         if(user == null){
             throw new ObjectNotFoundException("User doesn't exist") ;
         }
+        System.out.println("get quizzes");
         JSONObject jsonObject = new JSONObject();
+        em.refresh(user);
         JSONArray quizzesJsonArray = quizControl.getJsonFromCollection(user.getQuizzes());
         try {
             jsonObject.put("quizzes", quizzesJsonArray);
@@ -144,5 +151,18 @@ public class QuizService{
             e.printStackTrace();
         }
         return jsonObject;
+    }
+
+    public Object setScore(int quizId, int score) throws ObjectNotFoundException {
+        Quiz quiz = em.find(Quiz.class, quizId);
+        if(quiz == null){
+            throw new ObjectNotFoundException("object not found");
+        }
+        quiz.setScore(score);
+        quiz = em.merge(quiz);
+        em.flush();
+
+        return quiz;
+
     }
 }

@@ -54,10 +54,14 @@ public class CaseManagerConnector {
     public void createReviewQuizCase(int userId, int quizId, List<String> questions, List<String> answers){
         try {
             ObjectStoreReference objectStoreReference = new ObjectStoreReference(getObjectStore());
+            System.out.println("getObjectStore completed");
             CaseType caseTypeObj = CaseType.fetchInstance(objectStoreReference, "QRH_ReviewQuiz");
+            System.out.println("CaseType.fetchInstance completed");
             Case newCase = Case.createPendingInstanceFetchDefaults(caseTypeObj);
+            System.out.println("createPendingInstanceFetchDefaults completed");
             CaseMgmtProperties props = newCase.getProperties();
             HashMap<String,Object> vals = new HashMap<>();
+            vals.put("QRH_quizid", quizId);
             vals.put("QRH_userid", userId);
             vals.put("QRH_questions", questions);
             vals.put("QRH_answers", answers);
@@ -72,6 +76,7 @@ public class CaseManagerConnector {
             }
             newCase.save(RefreshMode.REFRESH, null, ModificationIntent.NOT_MODIFY);
             System.out.println(newCase.getProperties().asList().toString());
+            System.out.println("case created");
         }
         catch(Exception e){
             throw e;

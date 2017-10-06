@@ -64,7 +64,9 @@ public class QuizResource {
     public Response setScore(JsonObject jsonObject){
         try{
             System.out.println(jsonObject);
-            return Response.ok(jsonObject).build();
+            int quizId = Integer.parseInt(jsonObject.getString("quizId"));
+            int score = Integer.parseInt(jsonObject.getString("score"));
+            return Response.ok(quizService.setScore(quizId, score)).build();
         }
         catch (Exception exc){
             System.out.println(exc.getMessage());
